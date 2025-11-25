@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/aashaya/static/css/main.d5d25991.css",
+    "main.js": "/aashaya/static/js/main.0b2192a4.js",
+    "static/js/453.35578d8e.chunk.js": "/aashaya/static/js/453.35578d8e.chunk.js",
+    "static/media/icon.png": "/aashaya/static/media/icon.15ddc39a21f1fd01d035.png",
+    "static/media/children.jpg": "/aashaya/static/media/children.f603a9f9ee5e2e20b7eb.jpg",
+    "static/media/children.png": "/aashaya/static/media/children.2d2d60f40da49d6df908.png",
+    "static/media/socialWelfare.jpg": "/aashaya/static/media/socialWelfare.83bb4da75199c5812cc7.jpg",
+    "static/media/envron.png": "/aashaya/static/media/envron.74d1fa45ead334a2ff9a.png",
+    "static/media/book.png": "/aashaya/static/media/book.31ddfccd11345ab9b6ad.png",
+    "index.html": "/aashaya/index.html",
+    "main.d5d25991.css.map": "/aashaya/static/css/main.d5d25991.css.map",
+    "main.0b2192a4.js.map": "/aashaya/static/js/main.0b2192a4.js.map",
+    "453.35578d8e.chunk.js.map": "/aashaya/static/js/453.35578d8e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d5d25991.css",
+    "static/js/main.0b2192a4.js"
+  ]
+}
