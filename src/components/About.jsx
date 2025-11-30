@@ -24,20 +24,7 @@ We partner with locals to design programs that last.
 </div>
 
 
-<div className="stats">
-<div className="stat">
-<div className="num">120+</div>
-<div className="label">Volunteers</div>
-</div>
-<div className="stat">
-<div className="num">5</div>
-<div className="label">Locations</div>
-</div>
-<div className="stat">
-<div className="num">3k+</div>
-<div className="label">Children helped</div>
-</div>
-</div>
+
 </div>
 </section>
 )

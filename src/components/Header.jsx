@@ -10,9 +10,9 @@ return (
   <img
     src={iconImg}
     alt="Aashaya"
-    style={{ width: '50px', height: '50px', verticalAlign: 'middle' }}
+    style={{ width: '30px', height: '30px', verticalAlign: 'middle' }}
   />
-  {' '}AASHAYA Inc.
+  {' '}AASHAYA 
 </h4></div>
 <nav>
 <ul className="nav-list">
@@ -20,7 +20,6 @@ return (
 <li><a href="#about">About Us</a></li>
 <li><a href="#programs">Programs</a></li>
 <li><a href="#get-involved">Get Involved</a></li>
-<li><a href="#donate" className="donate-btn">Donate</a></li>
 </ul>
 </nav>
 </div>
