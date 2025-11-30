@@ -11,7 +11,9 @@ app.use(cors({
   origin: [
     "http://localhost:3001", // local dev
     "https://varshinimp2402.github.io", // your GitHub Pages frontend
-    "https://varshinimp2402.github.io/Aashaya"
+    "https://varshinimp2402.github.io/Aashaya",
+    "https://aashaya.onrender.com",
+  "https://aashaya.org" 
   ]
 }));
 
