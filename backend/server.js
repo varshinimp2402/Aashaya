@@ -1,22 +1,21 @@
 import express from "express";
 import cors from "cors";
-import nodemailer from "nodemailer";
 import dotenv from "dotenv";
+import fetch from "node-fetch"; // for Resend API
 
 dotenv.config();
 const app = express();
 
 // ✅ CORS middleware
-app.use(cors({ origin: "http://localhost:3001" })); // Change port if needed
+app.use(cors({
+  origin: [
+    "http://localhost:3001", // local dev
+    "https://varshinimp2402.github.io", // your GitHub Pages frontend
+    "https://varshinimp2402.github.io/Aashaya"
+  ]
+}));
 
-// Parse JSON
 app.use(express.json());
-
-// Nodemailer setup
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS }
-});
 
 // POST /send-email
 app.post("/send-email", async (req, res) => {
@@ -24,13 +23,23 @@ app.post("/send-email", async (req, res) => {
   if (!name || !email || !message) return res.status(400).json({ success: false });
 
   try {
-    await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER,
-      replyTo: email,
-      subject: `New message from ${name}`,
-      text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+    const response = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${process.env.RESEND_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: "Aashaya <noreply@resend.dev>",
+        to: [process.env.TO_EMAIL],
+        subject: `New message from ${name}`,
+        text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+        reply_to: email
+      })
     });
+
+    if (!response.ok) throw new Error("Failed to send email via Resend");
+
     res.json({ success: true });
   } catch (err) {
     console.error(err);
@@ -39,17 +48,5 @@ app.post("/send-email", async (req, res) => {
 });
 
 // Start server
-const PORT = 5050;
-app.listen(PORT, () => console.log(`Backend running on port ${PORT} var`));
-
-
-// import express from "express";
-// import cors from "cors";
-
-// const app = express();
-// app.use(cors());
-// app.use(express.json());
-
-// app.get("/", (req, res) => res.send("Backend working!"));
-
-// app.listen(5000, () => console.log("Backend running on port 5000 var"));
+const PORT = process.env.PORT || 5050;
+app.listen(PORT, () => console.log(`Backend running on port ${PORT}`));

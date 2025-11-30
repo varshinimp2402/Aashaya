@@ -12,7 +12,7 @@ export default function ContactForm() {
     const message = e.target.message.value;
 
     try {
-      const res = await fetch("http://127.0.0.1:5050/send-email", {
+      const res = await fetch("https://aashaya.onrender.com/send-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, message })
